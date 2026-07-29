@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BoostPipeline — The AI Agent That Fills Your Top of Funnel</title>
+<meta name="description" content="An AI RevOps agent that surfaces buying signals, opens conversations, and books meetings — at the volume of a 12-person SDR team, none of the cost.">
+<meta name="theme-color" content="#F97316">
+<meta property="og:title" content="BoostPipeline — The AI Agent That Fills Your Top of Funnel">
+<meta property="og:description" content="An AI RevOps agent that opens conversations and books meetings, while you focus on closing.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://boostpipeline.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0F0F' rx='6'/%3E%3Cpath d='M10 24 L20 8 L20 16 L26 16 L14 24 L18 18 L10 18 Z' fill='%23F97316'/%3E%3C/svg%3E">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif']
+      },
+      colors: {
+        flame:  { 400: '#FB923C', 500: '#F97316', 600: '#EA580C', 700: '#C2410C' },
+        sun:    { 400: '#FBBF24', 500: '#F59E0B' },
+        carbon: { 950: '#0A0A0A', 900: '#0F0F0F', 800: '#1A1A1A', 700: '#262626', 600: '#3F3F3F' },
+        bone:   { 50: '#FAFAFA', 100: '#F5F5F5', 200: '#E5E5E5' }
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  .font-display { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: -0.025em; }
+  *:focus-visible { outline: 3px solid #F97316; outline-offset: 3px; border-radius: 6px; }
+  .grad-flame {
+    background: linear-gradient(120deg, #F97316 0%, #FBBF24 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .grad-flame-bg {
+    background: linear-gradient(120deg, #C2410C 0%, #F97316 50%, #F59E0B 100%);
+  }
+  .stripe-bg {
+    background-image: repeating-linear-gradient(-45deg, rgba(249,115,22,.04) 0 2px, transparent 2px 12px);
+  }
+  .glow {
+    box-shadow: 0 0 0 1px rgba(249,115,22,.3), 0 10px 60px -10px rgba(249,115,22,.5);
+  }
+  .blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(100px);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(20px); animation: rise .7s ease-out forwards; }
+    .reveal-2 { animation-delay: .1s; }
+    .reveal-3 { animation-delay: .2s; }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+  }
+</style>
+</head>
+<body class="bg-bone-50 text-carbon-900 antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-flame-500 text-white px-4 py-2 rounded-md z-50 text-sm font-bold">Skip to content</a>
+
+<header class="sticky top-0 z-30 border-b border-carbon-900/10 bg-bone-50/90 backdrop-blur">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2.5" aria-label="BoostPipeline home">
+      <span class="w-9 h-9 rounded-lg bg-carbon-900 grid place-items-center" aria-hidden="true">
+        <svg class="w-5 h-5" viewBox="0 0 32 32" aria-hidden="true"><path d="M10 24 L20 8 L20 16 L26 16 L14 24 L18 18 L10 18 Z" fill="#F97316"/></svg>
+      </span>
+      <span class="font-display font-extrabold text-lg tracking-tight">Boost<span class="text-flame-500">Pipeline</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-carbon-700" aria-label="Primary">
+      <a href="#what" class="hover:text-flame-600 transition-colors">What it does</a>
+      <a href="#results" class="hover:text-flame-600 transition-colors">Results</a>
+      <a href="#waitlist" class="hover:text-flame-600 transition-colors">Pricing</a>
+      <a href="#waitlist" class="inline-flex items-center gap-1.5 bg-carbon-900 hover:bg-flame-600 text-white px-4 py-2 rounded-lg font-bold transition-colors min-h-[44px]">Book a demo</a>
+    </nav>
+    <a href="#waitlist" class="md:hidden bg-carbon-900 text-white px-4 py-2 rounded-lg text-sm font-bold min-h-[44px] inline-flex items-center">Demo</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden stripe-bg">
+    <span class="blob bg-flame-500 w-[500px] h-[500px] top-[-150px] right-[-100px]" aria-hidden="true"></span>
+    <div class="relative max-w-7xl mx-auto px-6 pt-20 pb-24 md:pt-32 md:pb-28">
+      <div class="max-w-4xl reveal">
+        <div class="inline-flex items-center gap-2 bg-flame-500/10 border border-flame-500/30 px-3 py-1.5 rounded-full text-xs font-bold mb-7 text-flame-700 uppercase tracking-wider">
+          <span class="w-1.5 h-1.5 bg-flame-500 rounded-full" aria-hidden="true"></span>
+          AI RevOps Agent &middot; Top-of-Funnel
+        </div>
+        <h1 class="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold leading-[0.98] tracking-tight mb-7">
+          Pipeline <span class="grad-flame">on fire.</span><br>
+          Without burning out your SDRs.
+        </h1>
+        <p class="text-lg md:text-xl text-carbon-700 leading-relaxed mb-10 max-w-2xl">
+          BoostPipeline is the AI agent that surfaces buying signals, opens conversations
+          across email and LinkedIn, and books meetings on your reps&rsquo; calendars
+          &mdash; at the volume of a 12-person SDR team. None of the cost. None of the
+          ramp time.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 reveal reveal-2">
+          <a href="#waitlist" class="inline-flex items-center justify-center gap-2 grad-flame-bg text-white px-7 py-4 rounded-xl text-base font-bold transition-all glow min-h-[52px]">
+            Book a 15-min demo
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#what" class="inline-flex items-center justify-center gap-2 bg-bone-50 hover:bg-bone-100 text-carbon-900 border border-carbon-900/15 px-7 py-4 rounded-xl text-base font-bold transition-colors min-h-[52px]">
+            See what it does
+          </a>
+        </div>
+
+        <div class="mt-14 reveal reveal-3 grid grid-cols-3 gap-6 max-w-2xl">
+          <div>
+            <div class="font-display text-4xl md:text-5xl font-extrabold grad-flame">14&times;</div>
+            <div class="text-sm text-carbon-700 mt-1">More qualified meetings per rep</div>
+          </div>
+          <div>
+            <div class="font-display text-4xl md:text-5xl font-extrabold grad-flame">$0.40</div>
+            <div class="text-sm text-carbon-700 mt-1">Cost per personalised outreach</div>
+          </div>
+          <div>
+            <div class="font-display text-4xl md:text-5xl font-extrabold grad-flame">24/7</div>
+            <div class="text-sm text-carbon-700 mt-1">Always on. No PTO, no Mondays.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IT DOES -->
+  <section id="what" class="py-24 md:py-32 bg-carbon-900 text-bone-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl mb-16">
+        <div class="text-xs uppercase tracking-widest text-flame-400 font-bold mb-4">What it does</div>
+        <h2 class="font-display text-4xl md:text-5xl font-extrabold leading-tight mb-5">
+          Four jobs an SDR used to do.<br>
+          <span class="grad-flame">Now one agent.</span>
+        </h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <article class="rounded-2xl border border-white/10 bg-carbon-800 p-7 hover:border-flame-500/50 transition-colors">
+          <div class="w-12 h-12 rounded-xl grad-flame-bg flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 class="font-display font-extrabold text-lg mb-2">Signal scan</h3>
+          <p class="text-sm text-bone-200/70 leading-relaxed">Hiring, funding, tech-stack changes, product launches, exec moves. Real-time alerts the moment a lead becomes a lead.</p>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-carbon-800 p-7 hover:border-flame-500/50 transition-colors">
+          <div class="w-12 h-12 rounded-xl grad-flame-bg flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v12H5l-1 4z"/></svg>
+          </div>
+          <h3 class="font-display font-extrabold text-lg mb-2">Outreach drafting</h3>
+          <p class="text-sm text-bone-200/70 leading-relaxed">Personalised email + LinkedIn for every contact, every time. Tied to a real trigger, written in your voice, sent from your domain.</p>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-carbon-800 p-7 hover:border-flame-500/50 transition-colors">
+          <div class="w-12 h-12 rounded-xl grad-flame-bg flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M16 2v4M8 2v4M4 10h16"/></svg>
+          </div>
+          <h3 class="font-display font-extrabold text-lg mb-2">Meeting booking</h3>
+          <p class="text-sm text-bone-200/70 leading-relaxed">Replies are read, qualified, and rounded-robin to the right AE. Calendar conflict-checked. Buyer never bounces.</p>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-carbon-800 p-7 hover:border-flame-500/50 transition-colors">
+          <div class="w-12 h-12 rounded-xl grad-flame-bg flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+          </div>
+          <h3 class="font-display font-extrabold text-lg mb-2">CRM enrichment</h3>
+          <p class="text-sm text-bone-200/70 leading-relaxed">Every conversation, every signal, every reply &mdash; logged to your CRM. The audit trail your CRO has wanted for years.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="py-24 md:py-32 bg-bone-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl mb-16">
+        <div class="text-xs uppercase tracking-widest text-flame-600 font-bold mb-4">Results</div>
+        <h2 class="font-display text-4xl md:text-5xl font-extrabold leading-tight">
+          Customers running it for <span class="grad-flame">90 days.</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="rounded-2xl bg-carbon-900 text-bone-50 p-8 relative overflow-hidden">
+          <div class="font-display text-6xl font-extrabold grad-flame mb-3">+312%</div>
+          <div class="font-bold mb-2">Qualified meetings booked</div>
+          <p class="text-sm text-bone-200/70">SaaS scale-up, Series B, replaced 4-rep SDR team.</p>
+        </div>
+        <div class="rounded-2xl bg-carbon-900 text-bone-50 p-8 relative overflow-hidden">
+          <div class="font-display text-6xl font-extrabold grad-flame mb-3">9 days</div>
+          <div class="font-bold mb-2">Sales cycle compression</div>
+          <p class="text-sm text-bone-200/70">B2B fintech, signal-triggered outreach landing earlier in cycle.</p>
+        </div>
+        <div class="rounded-2xl bg-carbon-900 text-bone-50 p-8 relative overflow-hidden">
+          <div class="font-display text-6xl font-extrabold grad-flame mb-3">87%</div>
+          <div class="font-bold mb-2">Lower cost-per-meeting</div>
+          <p class="text-sm text-bone-200/70">Mid-market services co, replaced retained agency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="waitlist" class="py-24 md:py-32 grad-flame-bg text-white relative overflow-hidden">
+    <div class="relative max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-display text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+        Ready to set fire<br>to your pipeline?
+      </h2>
+      <p class="text-lg text-white/90 max-w-xl mx-auto mb-10">
+        Book a 15-minute demo. We&rsquo;ll show it running against accounts in your ICP &mdash;
+        live, on the call. No slides.
+      </p>
+      <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onsubmit="event.preventDefault(); document.getElementById('ok').classList.remove('hidden'); document.getElementById('form').classList.add('hidden')" id="form">
+        <label class="sr-only" for="email">Work email</label>
+        <input id="email" type="email" required placeholder="you@company.com" class="flex-1 bg-white border border-transparent text-carbon-900 placeholder-carbon-600/60 px-5 py-4 rounded-xl outline-none focus:border-carbon-900 text-base min-h-[52px]" aria-label="Work email">
+        <button type="submit" class="bg-carbon-900 hover:bg-carbon-800 text-white font-bold px-7 py-4 rounded-xl transition-colors inline-flex items-center justify-center gap-2 min-h-[52px]">
+          Book demo
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+      <div id="ok" class="hidden bg-white/15 border border-white/30 text-white rounded-xl px-6 py-4 max-w-lg mx-auto font-medium" role="status" aria-live="polite">
+        Got it. We&rsquo;ll be in touch with a calendar link within the hour.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-carbon-900/10 bg-bone-100 py-12">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <div class="flex items-center gap-2.5">
+      <span class="w-7 h-7 rounded-lg bg-carbon-900 grid place-items-center" aria-hidden="true">
+        <svg class="w-4 h-4" viewBox="0 0 32 32" aria-hidden="true"><path d="M10 24 L20 8 L20 16 L26 16 L14 24 L18 18 L10 18 Z" fill="#F97316"/></svg>
+      </span>
+      <span class="font-display font-extrabold">Boost<span class="text-flame-500">Pipeline</span></span>
+      <span class="text-sm text-carbon-700 ml-2">&copy; 2026 &mdash; The AI RevOps agent for B2B</span>
+    </div>
+    <a href="/cdn-cgi/l/email-protection#0d65686161624d6f62627e797d647d6861646368236e6260" class="text-sm text-carbon-700 hover:text-flame-600 transition-colors"><span class="__cf_email__" data-cfemail="48202d242427082a27273b3c3821382d2421262d662b2725">[email&#160;protected]</span></a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
