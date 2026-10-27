@@ -1,0 +1,15 @@
+{
+  "name": "boostpipeline.com",
+  "private": true,
+  "description": "Static site. style.css and fonts/ are committed build output; Cloudflare Pages needs no build step.",
+  "scripts": {
+    "build": "npm run build:css && npm run build:fonts",
+    "build:css": "tailwindcss -i src/input.css -o style.css --minify",
+    "build:fonts": "mkdir -p fonts && cp node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2 node_modules/@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2 fonts/ && cp node_modules/@fontsource-variable/inter/LICENSE fonts/LICENSE-inter.txt && cp node_modules/@fontsource-variable/plus-jakarta-sans/LICENSE fonts/LICENSE-plus-jakarta-sans.txt"
+  },
+  "devDependencies": {
+    "@fontsource-variable/inter": "5.3.0",
+    "@fontsource-variable/plus-jakarta-sans": "5.3.0",
+    "tailwindcss": "3.4.17"
+  }
+}
