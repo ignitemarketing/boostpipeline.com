@@ -32,9 +32,13 @@ jobs:
         with:
           persist-credentials: false
 
+      # npm 10 (Node 22 on the runner) crashes resolving html-validate's
+      # optional vitest/jest peers ("reading 'edgesOut'"); skip peer resolution.
       - name: HTML validation
         id: html
         if: ${{ !cancelled() }}
+        env:
+          npm_config_legacy_peer_deps: 'true'
         run: npx --yes html-validate@11.6.2 "**/*.html"
 
       # Checks same-site links only. External URLs are skipped, and so is
