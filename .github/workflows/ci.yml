@@ -39,14 +39,14 @@ jobs:
         if: ${{ !cancelled() }}
         env:
           npm_config_legacy_peer_deps: 'true'
-        run: npx --yes html-validate@11.6.2 "**/*.html"
+        run: npx --yes --legacy-peer-deps html-validate@11.6.2 "**/*.html"
 
       # Checks same-site links only. External URLs are skipped, and so is
       # /cdn-cgi/, which only the Cloudflare edge serves.
       - name: Local links resolve
         id: links
         if: ${{ !cancelled() }}
-        run: npx --yes linkinator@8.0.3 . --recurse --skip '^https?://(?!(localhost|127\.0\.0\.1)[:/])' --skip '/cdn-cgi/'
+        run: npx --yes --legacy-peer-deps linkinator@8.0.3 . --recurse --skip '^https?://(?!(localhost|127\.0\.0\.1)[:/])' --skip '/cdn-cgi/'
 
       - name: No localhost references
         id: localhost
